@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Scientists' Portal</title>
+</h:head>
+<h:body>
+    <div id="header">
+        <h1>Welcome to Scientists' Portal!</h1>
+    </div>
+    <h:form>
+        <h:outputLabel value="Username:" for="username"/>
+        <h:inputText id="username" value="#{loginManager.username}"
+                     required="true"/>
+        <h:message for="username" styleClass="message"/>
+
+        <h:outputLabel value="Password:" for="password"/>
+        <h:inputText id="password" value="#{loginManager.password}"
+                     required="true"/>
+        <h:message for="password" styleClass="message"/>
+        <h:commandButton id="submit" value="Submit" action="profile"/>
+    </h:form>
+</h:body>
+</html>
