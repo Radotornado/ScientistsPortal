@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>Facelets Hello Response</title>
+    <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
-    <h:form>
-        <h2>Hello, #{profileManager.currentScientist.username}!</h2>
-        <h2>Password: #{profileManager.currentScientist.password}</h2>
-        <h2>Full Name: #{profileManager.currentScientist.name}</h2>
-        <h2>Birthdate: #{profileManager.currentScientist.birthdate}</h2>
-        <h2>Address: #{profileManager.currentScientist.address}</h2>
-        <h:commandButton id="back" value="Logout" action="#{profileManager.logout()}" />
-    </h:form>
-    <hr/>
-    <br/>
-    <h:form>
-        <h:outputLabel value="Change password:" for="password"/>
-        <h:inputText id="password" value="#{profileManager.password}"/>
-        <h:message for="password" styleClass="message"/>
-
-        <h:commandButton id="submit" value="Submit"
-                         action="#{profileManager.changeData()}"/>
-    </h:form>
+    <div class="form">
+        <header class="formHeader">
+            <h2>Welcome! Here is the data we have on you. You can edit everything, except your username.</h2>
+        </header>
+        <h:form class="userForm">
+            <p class="input">Username: #{profileManager.currentScientist.username}</p>
+            <h:inputText id="password"
+                         value="Password: #{profileManager.currentScientist.password}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Password"/>
+            <h:inputText id="name"
+                         value="Full Name: #{profileManager.currentScientist.name}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Full Name"/>
+            <h:inputText id="birthday"
+                         value="Birthday: #{profileManager.currentScientist.birthdate}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Birthday"/>
+            <h:inputText id="address"
+                         value="Address: #{profileManager.currentScientist.address}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Address"/>
+            <h:commandButton id="changeData" value="Change"
+                             action="#{profileManager.changeData()}"
+                             styleClass="button"/>
+        </h:form>
+        <h:form class="userForm">
+            <h:commandButton id="logout" value="Logout"
+                             action="#{profileManager.logout()}"
+                             styleClass="button"/>
+        </h:form>
+    </div>
 </h:body>
 </html>

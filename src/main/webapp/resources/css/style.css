@@ -11,7 +11,7 @@ html {
     overflow: hidden;
 }
 
-.loginForm {
+.form {
     width: 90%;
     max-width: 500px;
     margin: 10vh auto;
@@ -23,7 +23,7 @@ html {
     font-size: 22px;
 }
 
-#form {
+.userForm {
     margin-top: 40px;
     border-radius: 6px;
     overflow: hidden;

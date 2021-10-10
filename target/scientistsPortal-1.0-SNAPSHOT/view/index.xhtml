@@ -9,11 +9,11 @@
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
-    <div class="loginForm">
+    <div class="form">
         <header class="formHeader">
             <h1>Welcome to Scientists' Portal!</h1>
         </header>
-        <h:form id="form">
+        <h:form class="userForm">
             <h:inputText id="username" value="#{profileManager.username}"
                          required="true" styleClass="input"
                          pt:placeholder="Username"/>
