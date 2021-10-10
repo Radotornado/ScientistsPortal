@@ -7,9 +7,11 @@
 </h:head>
 <h:body>
     <h:form>
-        <h2>Hello, #{scientist.username}!</h2>
-        <h2>pass: #{scientist.password}</h2>
-        <h2>pass: #{scientist.address}</h2>
+        <h2>Hello, #{profileManager.username}!</h2>
+        <h2>pass: #{profileManager.password}</h2>
+        <h2>pass: #{profileManager.currentScientist.name}</h2>
+        <h2>pass: #{profileManager.currentScientist.birthdate}</h2>
+        <h2>pass: #{profileManager.currentScientist.address}</h2>
         <p></p>
         <h:commandButton id="back" value="Back" action="index" />
     </h:form>

@@ -1,9 +1,6 @@
 package de.uni_passau.fim.scientistsPortal;
 
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.time.LocalDate;
@@ -12,9 +9,6 @@ import java.time.LocalDate;
 @RequestScoped
 public class Scientist {
 
-    @Inject
-    FacesContext fctx;
-
     private String username;
     private String password;
     private String name;
@@ -22,6 +16,15 @@ public class Scientist {
     private String address;
 
     public Scientist() {
+    }
+
+    public Scientist(String username, String password, String name,
+                     LocalDate birthdate, String address) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.birthdate = birthdate;
+        this.address = address;
     }
 
     public String getUsername() {
@@ -62,18 +65,5 @@ public class Scientist {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String login() {
-        boolean success = username.equals("admin") && password.equals("admin");
-        if (success) {
-            return "profile";
-        } else {
-            FacesMessage fmsg = new FacesMessage(
-                    "Username or Password not correct.");
-            fmsg.setSeverity(FacesMessage.SEVERITY_ERROR);
-            fctx.addMessage("createCourse:id", fmsg);
-            return null;
-        }
     }
 }

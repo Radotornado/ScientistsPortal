@@ -12,16 +12,16 @@
     </div>
     <h:form>
         <h:outputLabel value="Username:" for="username"/>
-        <h:inputText id="username" value="#{scientist.username}"
+        <h:inputText id="username" value="#{profileManager.username}"
                      required="true"/>
         <h:message for="username" styleClass="message"/>
 
         <h:outputLabel value="Password:" for="password"/>
-        <h:inputText id="password" value="#{scientist.password}"
+        <h:inputText id="password" value="#{profileManager.password}"
                      required="true"/>
         <h:message for="password" styleClass="message"/>
         <h:commandButton id="submit" value="Submit"
-                         action="#{scientist.login()}"/>
+                         action="#{profileManager.login()}"/>
     </h:form>
 </h:body>
 </html>
