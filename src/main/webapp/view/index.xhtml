@@ -2,27 +2,29 @@
 <!DOCTYPE html >
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>Scientists' Portal</title>
-    <h:outputStylesheet name="style.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
-    <div id="header">
-        <h1>Welcome to Scientists' Portal!</h1>
+    <div class="loginForm">
+        <header class="formHeader">
+            <h1>Welcome to Scientists' Portal!</h1>
+        </header>
+        <h:form id="form">
+            <h:inputText id="username" value="#{profileManager.username}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Username"/>
+            <h:inputText id="password" value="#{profileManager.password}"
+                         required="true" styleClass="input"
+                         pt:placeholder="Password"/>
+            <h:message for="password" id="message"/>
+            <h:commandButton id="submit" value="Submit"
+                             action="#{profileManager.login()}"
+                             styleClass="button"/>
+        </h:form>
     </div>
-    <h:form>
-        <h:outputLabel value="Username:" for="username"/>
-        <h:inputText id="username" value="#{profileManager.username}"
-                     required="true"/>
-        <h:message for="username" styleClass="message"/>
-
-        <h:outputLabel value="Password:" for="password"/>
-        <h:inputText id="password" value="#{profileManager.password}"
-                     required="true"/>
-        <h:message for="password" styleClass="message"/>
-        <h:commandButton id="submit" value="Submit"
-                         action="#{profileManager.login()}"/>
-    </h:form>
 </h:body>
 </html>

@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+}
+
+html {
+    background: linear-gradient(45deg, #49C49D 20%, #A2B7E5 80%);
+    height: 100%;
+    overflow: hidden;
+}
+
+.loginForm {
+    width: 90%;
+    max-width: 500px;
+    margin: 10vh auto;
+    color: #000000;
+}
+
+.formHeader {
+    text-align: center;
+    font-size: 22px;
+}
+
+#form {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    border: 0;
+    background: #E0E0E0;
+    font-size: 20px;
+}
+
+#submit {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    border: 0;
+    color: #000000;
+    font-size: 20px;
+}
+
+#message:empty {
+    height: 0;
+    padding: 0;
+    width: 0;
+    margin: 0;
+}
+
+#message {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    border: 0;
+    background: #ADD8E6;
+    font-size: 20px;
+}
+
+small {
+    color: #e74c3c;
+    visibility: hidden;
+    position: absolute;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    outline: 0;
+    border: 0;
+    color: #000000;
+    font-size: 20px;
+}
