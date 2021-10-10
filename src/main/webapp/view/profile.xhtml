@@ -7,13 +7,22 @@
 </h:head>
 <h:body>
     <h:form>
-        <h2>Hello, #{profileManager.username}!</h2>
-        <h2>pass: #{profileManager.password}</h2>
-        <h2>pass: #{profileManager.currentScientist.name}</h2>
-        <h2>pass: #{profileManager.currentScientist.birthdate}</h2>
-        <h2>pass: #{profileManager.currentScientist.address}</h2>
-        <p></p>
-        <h:commandButton id="back" value="Back" action="index" />
+        <h2>Hello, #{profileManager.currentScientist.username}!</h2>
+        <h2>Password: #{profileManager.currentScientist.password}</h2>
+        <h2>Full Name: #{profileManager.currentScientist.name}</h2>
+        <h2>Birthdate: #{profileManager.currentScientist.birthdate}</h2>
+        <h2>Address: #{profileManager.currentScientist.address}</h2>
+        <h:commandButton id="back" value="Logout" action="#{profileManager.logout()}" />
+    </h:form>
+    <hr/>
+    <br/>
+    <h:form>
+        <h:outputLabel value="Change password:" for="password"/>
+        <h:inputText id="password" value="#{profileManager.password}"/>
+        <h:message for="password" styleClass="message"/>
+
+        <h:commandButton id="submit" value="Submit"
+                         action="#{profileManager.changeData()}"/>
     </h:form>
 </h:body>
 </html>

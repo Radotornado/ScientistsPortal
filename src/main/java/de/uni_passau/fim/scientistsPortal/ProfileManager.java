@@ -6,9 +6,10 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 @Named
 @RequestScoped
@@ -80,10 +81,29 @@ public class ProfileManager {
         for(Scientist scientist : scientists) {
             if (username.equals(scientist.getUsername())
                     && password.equals(scientist.getPassword())) {
-                this.currentScientist = scientist;
+                currentScientist = scientist;
                 return true;
             }
         }
         return false;
+    }
+
+    public String logout() {
+        username = null;
+        password = null;
+        currentScientist = null;
+        return "index";
+    }
+
+    public String changeData() {
+        Logger log = Logger.getLogger(ProfileManager.class.getName());
+        log.severe(password);
+        //currentScientist.setPassword(password);
+        //for(Scientist scientist : scientists) {
+        //    if (currentScientist.getUsername().equals(scientist.getUsername())) {
+        //        scientist.setPassword(passwor d);
+        //    }
+        //}
+        return "index";
     }
 }
