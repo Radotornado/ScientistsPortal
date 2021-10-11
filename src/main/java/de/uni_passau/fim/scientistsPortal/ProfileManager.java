@@ -6,7 +6,6 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -53,15 +52,17 @@ public class ProfileManager {
 
     private void initializeScientists() {
         Scientist konrad = new Scientist("konrad", "123456",
-                "Konrad Zuse", LocalDate.of(1910, 5, 22),
+                "Konrad Zuse", "1910-05-22",
                 "none given");
         Scientist dennis = new Scientist("dennis", "admin",
-                "Dennis Ritchie", LocalDate.of(1941, 9, 9),
+                "Dennis Ritchie", "1941-09-09",
                 "none given");
-        currentScientist = null;
+
         scientists = new ArrayList<>();
         scientists.add(konrad);
         scientists.add(dennis);
+
+        currentScientist = new Scientist();
     }
 
     public String login() {
@@ -78,7 +79,7 @@ public class ProfileManager {
     }
 
     private boolean isLoginDataCorrect() {
-        for(Scientist scientist : scientists) {
+        for (Scientist scientist : scientists) {
             if (username.equals(scientist.getUsername())
                     && password.equals(scientist.getPassword())) {
                 currentScientist = scientist;
@@ -97,7 +98,14 @@ public class ProfileManager {
 
     public String changeData() {
         Logger log = Logger.getLogger(ProfileManager.class.getName());
-        log.severe(password);
+        log.severe(username);
+        if (currentScientist != null) {
+            log.severe(currentScientist.getUsername());
+        } else {
+            log.severe("currScientist is null");
+        }
+        //log.severe(username);
+        //log.severe(currentScientist.getUsername());
         //currentScientist.setPassword(password);
         //for(Scientist scientist : scientists) {
         //    if (currentScientist.getUsername().equals(scientist.getUsername())) {

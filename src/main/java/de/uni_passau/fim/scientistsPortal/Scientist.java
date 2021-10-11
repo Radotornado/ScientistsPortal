@@ -4,6 +4,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Named
 @RequestScoped
@@ -19,11 +20,11 @@ public class Scientist {
     }
 
     public Scientist(String username, String password, String name,
-                     LocalDate birthdate, String address) {
+                     String birthdate, String address) {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.birthdate = birthdate;
+        setBirthdate(birthdate);
         this.address = address;
     }
 
@@ -51,12 +52,16 @@ public class Scientist {
         this.name = name;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public String getBirthdate() {
+        if (birthdate == null) {
+            return "unknown";
+        }
+        return birthdate.toString();
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthdate(String birthdate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.birthdate = LocalDate.parse(birthdate, formatter);
     }
 
     public String getAddress() {

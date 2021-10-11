@@ -16,10 +16,12 @@
         <h:form class="userForm">
             <h:inputText id="username" value="#{profileManager.username}"
                          required="true" styleClass="input"
-                         pt:placeholder="Username"/>
-            <h:inputText id="password" value="#{profileManager.password}"
+                         pt:placeholder="Username"
+                         maxlength="20"/>
+            <h:inputSecret  id="password" value="#{profileManager.password}"
                          required="true" styleClass="input"
-                         pt:placeholder="Password"/>
+                         pt:placeholder="Password"
+                         maxlength="20"/>
             <h:message for="password" id="message"/>
             <h:commandButton id="submit" value="Submit"
                              action="#{profileManager.login()}"
