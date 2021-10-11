@@ -23,6 +23,14 @@
         <welcome-file>faces/view/index.xhtml</welcome-file>
     </welcome-file-list>
 
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>downloadProtectedArea</web-resource-name>
+            <url-pattern>/view/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint/>
+    </security-constraint>
+
     <session-config>
         <session-timeout>
             30
