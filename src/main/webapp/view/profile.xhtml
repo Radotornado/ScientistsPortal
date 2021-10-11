@@ -2,8 +2,7 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f = "http://java.sun.com/jsf/core">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>Scienitsts' Portal</title>
     <h:outputStylesheet library="css" name="style.css"/>
@@ -35,12 +34,7 @@
                          value="#{profileManager.currentScientist.address}"
                          required="true" styleClass="input"
                          pt:placeholder="Address" maxlength="40"/>
-            <h:commandButton id="changeData" value="Change"
-                             action="#{profileManager.changeData()}"
-                             styleClass="button"/>
-        </h:form>
-        <h:form class="userForm">
-            <h:commandButton id="logout" value="Logout"
+            <h:commandButton id="logout" value="Logout/Change"
                              action="#{profileManager.logout()}"
                              styleClass="button"/>
         </h:form>

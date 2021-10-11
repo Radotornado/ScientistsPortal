@@ -66,6 +66,12 @@ public class ProfileManager {
     }
 
     public String login() {
+        Logger log = Logger.getLogger(ProfileManager.class.getName());
+        if (username != null) {
+            log.severe(username);
+        } else {
+            log.severe("no username");
+        }
         boolean success = isLoginDataCorrect();
         if (success) {
             return "profile";
@@ -93,25 +99,6 @@ public class ProfileManager {
         username = null;
         password = null;
         currentScientist = null;
-        return "index";
-    }
-
-    public String changeData() {
-        Logger log = Logger.getLogger(ProfileManager.class.getName());
-        log.severe(username);
-        if (currentScientist != null) {
-            log.severe(currentScientist.getUsername());
-        } else {
-            log.severe("currScientist is null");
-        }
-        //log.severe(username);
-        //log.severe(currentScientist.getUsername());
-        //currentScientist.setPassword(password);
-        //for(Scientist scientist : scientists) {
-        //    if (currentScientist.getUsername().equals(scientist.getUsername())) {
-        //        scientist.setPassword(passwor d);
-        //    }
-        //}
         return "index";
     }
 }
