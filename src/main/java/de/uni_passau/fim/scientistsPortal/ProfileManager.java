@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Handles login/logout and initializes hardcoded scientists.
+ */
 @Named
 @RequestScoped
 public class ProfileManager {

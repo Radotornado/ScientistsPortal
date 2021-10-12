@@ -6,6 +6,9 @@ import jakarta.inject.Named;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Saves the data for a Scientist.
+ */
 @Named
 @RequestScoped
 public class Scientist {
